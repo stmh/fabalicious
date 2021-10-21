@@ -402,8 +402,8 @@ class DrushMethod(BaseMethod):
   def updateApp(self, config, version=7, **kwargs):
     self.setRunLocally(config)
 
-    if 'composer' in config['needs']:
-      # ignore update, as composer will handle this.
+    if 'composer' or 'drushmake' in config['needs']:
+      # ignore update, as composer or drush make will handle this.
       return;
 
     # download drupal
